@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -n "$EMAIL" ]; then
+if [ -z "$EMAIL" ]; then
     echo "Email is required to install certificates"
     exit 1
 fi
