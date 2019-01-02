@@ -10,7 +10,7 @@ fi
 ## Just appends the args to the end of the command
 ## supply domain list to be added to this command:
 ## -d example.com [[-d arg], ...]
-docker run -p80:80 --rm certbot_container --name certbot_container verdude/certbot certbot certonly --agree-tos -m $EMAIL --keep --standalone --no-eff-email -n $@
+docker run -p80:80 --rm --name certbot_container verdude/certbot certbot certonly --agree-tos -m $EMAIL --keep --standalone --no-eff-email -n $@
 exitcode=$?
 
 if [ $exitcode -eq 0 ]; then
