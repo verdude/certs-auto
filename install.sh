@@ -21,7 +21,10 @@ docker run -p80:80 --rm --name $container_name verdude/certbot certbot certonly 
 exitcode=$?
 
 if [ $exitcode -eq 0 ]; then
+    echo "Copying certificates"
     docker cp $container_name:/etc/letsencrypt/ /etc/
+else
+    echo "Failed to create certificates"
 fi
 
 exit $exitcode
