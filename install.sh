@@ -7,7 +7,12 @@ if [ -z "$EMAIL" ]; then
     exit 1
 fi
 
-container_name=`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ''`
+container_name=`openssl rand -base64 12`
+
+if [ -z "$container_name" ]; then
+    echo "Failed to create container name."
+    exit 1
+fi
 
 ## Just appends the args to the end of the command
 ## supply domain list to be added to this command:
