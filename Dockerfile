@@ -1,4 +1,3 @@
 FROM alpine
 RUN apk update && apk add certbot
-expose 80
 
