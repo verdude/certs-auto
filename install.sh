@@ -7,7 +7,7 @@ if [ -z "$EMAIL" ]; then
     exit 1
 fi
 
-container_name=`openssl rand -base64 12`
+container_name=`openssl rand -hex 5`
 
 if [ -z "$container_name" ]; then
     echo "Failed to create container name."
