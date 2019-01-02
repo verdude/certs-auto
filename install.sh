@@ -18,14 +18,7 @@ fi
 ## supply domain list to be added to this command:
 ## -d example.com [[-d arg], ...]
 docker run -p80:80 --rm --name $container_name verdude/certbot certbot certonly --agree-tos -m $EMAIL --keep --standalone --no-eff-email -n $@
-exitcode=$?
 
-if [ $exitcode -eq 0 ]; then
-    echo "Copying certificates"
-    docker cp $container_name:/etc/letsencrypt/ /etc/
-else
-    echo "Failed to create certificates"
-fi
-
-exit $exitcode
+echo "Copying certificates"
+docker cp $container_name:/etc/letsencrypt/ /etc/
 
