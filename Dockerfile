@@ -1,3 +1,3 @@
-FROM alpine
-RUN apk update && apk add certbot
+FROM debian:stretch
+RUN apt-get update && apt-get install -y certbot
 

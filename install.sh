@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 if [ -z "$EMAIL" ]; then
     echo "Email is required to install certificates"
     exit 1
@@ -21,4 +19,5 @@ docker run -p80:80 --name $container_name verdude/certbot certbot certonly --agr
 
 echo "Copying certificates"
 docker cp $container_name:/etc/letsencrypt/ /etc/
+docker cp $container_name:/var/log/letsencrypt/ /etc/
 
